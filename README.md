@@ -1,4 +1,4 @@
-# 🥿 Shoe Store — 2025
+# 🥿 Shoe Store
 
 A sleek, responsive online shoe store built to deliver a seamless shopping experience. Designed for modern users with intuitive navigation, elegant design, and real-time cart functionality.
 
@@ -18,7 +18,7 @@ Visit the store: [shoes-store-2025-07-09.netlify.app](https://shoes-store-2025-0
 
 | Frontend      | Styling        | Deployment     |
 |---------------|----------------|----------------|
-| React.js      | Tailwind CSS   | Netlify        |
+| React.js      | Bootstrap      | Netlify        |
 
 ## 📦 Installation
 
