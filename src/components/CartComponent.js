@@ -165,21 +165,21 @@ export default function CartComponent() {
 
     const addToCart = (item) => {
         const isExists = cartItems.find(cartItem => cartItem.id === item.id);
-        if(isExists){
-            setCartItems(cartItems.map(cartItem => 
-                cartItem.id === item.id ? {...cartItem, quantity: cartItem.quantity + 1} : cartItem
+        if (isExists) {
+            setCartItems(cartItems.map(cartItem =>
+                cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
             ));
-        } else{
-            setCartItems([...cartItems, {...item, quantity: 1}]);
+        } else {
+            setCartItems([...cartItems, { ...item, quantity: 1 }]);
         }
     }
 
     const updateCart = (item) => {
-        if(item.quantity === 1){
+        if (item.quantity === 1) {
             setCartItems(cartItems.filter(cartItem => cartItem.id !== item.id));
-        } else{
-            setCartItems(cartItems.map(cartItem => 
-                cartItem.id === item.id ? {...cartItem, quantity: cartItem.quantity - 1} : cartItem
+        } else {
+            setCartItems(cartItems.map(cartItem =>
+                cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
             ))
         }
     }
@@ -193,7 +193,7 @@ export default function CartComponent() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-sm-12 col-lg-6 col-md-6 col-xl-6 col-xxl-6 mb-4">
+                <div className="col-sm-12 col-lg-6 col-md-6 col-xl-6 col-xxl-6 mb-4 pe-lg-5">
                     <h3 className="text-start mb-3">Available Shoes</h3>
                     <div className="row">
                         {shoes.map(item => (
@@ -209,20 +209,27 @@ export default function CartComponent() {
                         ))}
                     </div>
                 </div>
-                <div className="col-sm-12 col-lg-6 col-md-6 col-xl-6 col-xxl-6 mb-4">
+
+                <div className="col-sm-12 col-lg-6 col-md-6 col-xl-6 col-xxl-6 mb-4 ps-lg-5">
                     <h3 className="text-start mb-2">Cart</h3>
                     <table className="table">
                         <tbody>
-                            {cartItems && cartItems.map(cartItem => (
+                            {cartItems.map(cartItem => (
                                 <tr key={cartItem.id}>
-                                    <td >
+                                    <td>
                                         <img
                                             src={cartItem.image}
                                             className="img-fluid rounded"
-                                            style={{ width: '60px', height: '60px', display: 'block', margin: 0, padding: 0, verticalAlign: 'middle' }}
+                                            style={{
+                                                width: '60px',
+                                                height: '60px',
+                                                display: 'block',
+                                                margin: 0,
+                                                padding: 0,
+                                                verticalAlign: 'middle',
+                                            }}
                                             alt={cartItem.title}
                                         />
-
                                     </td>
                                     <td>{cartItem.title}</td>
                                     <td>Price ${cartItem.price}</td>
@@ -240,6 +247,7 @@ export default function CartComponent() {
                     <h4 className="text-start">Total: ${calcTotalPrice()}</h4>
                 </div>
             </div>
+
         </div>
     )
 
